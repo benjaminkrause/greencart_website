@@ -4,7 +4,7 @@
     <title>Green Cart - charity shopping</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href='//fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="default.css"> 
+    <link rel="stylesheet" type="text/css" href="default.css">
   </head>
   <body>
     <div id="container">
@@ -18,21 +18,75 @@
         <div id="search_area">
           <form method="GET" action="">
             <input type="text" name="q">
+            <input type="hidden" name="tag" value=""/>
           </form>
           <div id='slider' class='swipe'>
             <div class='swipe-wrap'>
-              <div class="charity" id="ov">abc</div>
-              <div class="charity" id="aog"></div>
-              <div class="charity" id="ai"></div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/ov.jpg" />
+                </div>
+              </div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/unicef.jpg" />
+                </div>
+              </div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/aog.jpg" />
+                </div>
+              </div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/ai.jpg" />
+                </div>
+              </div>
             </div>
           </div>
+          <nav>
+            <ul id="position">
+              <li class="on"></li>
+              <li class=""></li>
+              <li class=""></li>
+              <li class=""></li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
   </body>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js"></script>
+  <script type="text/javascript" src="assets/swipe.js"></script>
   <script type="text/javascript">
-    window.mySwipe = Swipe(document.getElementById('slider'));
+    var charityTags = [1,2,3,4];
+    var BlueDots = {
+      $el: null,
+      init: function() {
+        _this = this;
+        this.$el = $('#position');
+        this.$el.find('li').on('click', function(event) {
+          var index = $(event.target).index();
+          mySwipe.slide(index);
+        });
+      },
+      setActive: function(index) {
+        this.$el.find('.on').removeClass('on');
+        $(this.$el.children()[index]).addClass('on');
+      }
+    };
+    $(function() {
+      BlueDots.init();
+      window.mySwipe = new Swipe(document.getElementById('slider'), {
+        speed: 400,
+        auto: 3000,
+        continuous: true,
+        disableScroll: true,
+        callback: function(index, elem) {
+          BlueDots.setActive(index);
+          $('input[name="tag"]').val(charityTags[index]);
+        }
+      });
+    });
   </script>
 </html>
