@@ -58,12 +58,9 @@ div#search_area input {
 
 }
 
-div.charity {
+.slider-container {
   background-color: #131313;
-}
-
-.image {
-  margin: 40px;
+  padding: 40px;
 }
 
 .image img {
@@ -91,13 +88,14 @@ div.charity {
 
 ul#position {
   list-style: none;
+  margin-top: 20px;
 }
 ul#position li {
   display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 10px;
-  background: #141414;
+  background: #fff;
   box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;
   margin: 0 2px;
   cursor: pointer;
