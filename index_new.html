@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Green Cart - charity shopping</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='//fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="default.css"> 
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="logo">&nbsp;</div>
+        <h1>
+          Green Cart - charity shopping
+        </h1>
+      </div>
+      <div id="content">
+        <div id="search_area">
+          <form method="GET" action="">
+            <input type="text" name="q">
+          </form>
+          <div id='slider' class='swipe'>
+            <div class='swipe-wrap'>
+              <div class="charity" id="ov">abc</div>
+              <div class="charity" id="aog"></div>
+              <div class="charity" id="ai"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js"></script>
+  <script type="text/javascript">
+    window.mySwipe = Swipe(document.getElementById('slider'));
+  </script>
+</html>
