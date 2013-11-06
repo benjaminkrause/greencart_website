@@ -40,11 +40,12 @@ div#header h1 {
 }
 
 div#content {
-  margin-top: 2em;
 }
 
 div#search_area {
   text-align: center;
+  padding-top: 2em;
+  background: #2C2C2C;
 }
 
 div#search_area input {
@@ -59,7 +60,7 @@ div#search_area input {
 }
 
 .slider-container {
-  background-color: #131313;
+  background-color: #191919;
   padding: 40px;
 }
 
