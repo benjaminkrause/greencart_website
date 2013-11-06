@@ -63,11 +63,9 @@
     var BlueDots = {
       $el: null,
       init: function() {
-        _this = this;
         this.$el = $('#position');
         this.$el.find('li').on('click', function(event) {
-          var index = $(event.target).index();
-          mySwipe.slide(index);
+          mySwipe.slide($(event.target).index());
         });
       },
       setActive: function(index) {
