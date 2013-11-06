@@ -1,43 +1,90 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Greencart.co</title>
-	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-
-</head>
-<body>
-
-	<div class="overlay" id="foo"></div>
-
-	<div class="footer">
-      Durch den Kauf des iPhone 5c kannst du <a href="http://www.oroverde.de">Oro Verde</a> - und damit den Regenwald - unterst&uuml;tzen.
-		
-	</div>
-
-	<img src="http://www.oroverde.de/fileadmin/tmpl/img/logo.png" class="charity"/>
-
-	<h1>Greencart</h1>
-
-	<div class="wrapper">
-
-		<h2>Hilf mit bei der Erhaltung des Regenwalds</h2>
-
-		<h3>Durch den Erwerb des jeweils hier angebotenen Produkts, k&ouml;nnen wir mit Hilfe von Amazon einen Teil des Verkauferl&ouml;ses an Oro Verde spenden.</h3>
-
-		<a href="http://www.oroverde.de">
-			<img class="iphone" id="foo1" src="assets/iphone.png"/>
-		</a>
-
-		<a href="http://www.amazon.de/Apple-iPhone-Smartphone-Retina-Touchscreen-Megapixel/dp/B00F8JHAKQ/ref=sr_1_6?ie=UTF8&qid=1383712296&sr=8-6&keywords=iphone+5c" class="button">Buy the iPhone 5c</a>
-
-	</div>
-
-	<span class="contact">Greencart GmbH</span>
-
-	
-
-</body>
+  <head>
+    <title>Green Cart - charity shopping</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='//fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="default.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="logo">&nbsp;</div>
+        <h1>
+          Green Cart - charity shopping
+        </h1>
+      </div>
+      <div id="content">
+        <div id="search_area">
+          <form method="GET" action="http://www.amazon.de/s/">
+            <input type="text" name="field-keywords">
+            <input type="hidden" name="tag" value="bkone-20"/>
+          </form>
+          <div id='slider' class='swipe'>
+            <div class='swipe-wrap'>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/ov.jpg" />
+                </div>
+              </div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/unicef.jpg" />
+                </div>
+              </div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/aog.jpg" />
+                </div>
+              </div>
+              <div class="charity">
+                <div class="image">
+                  <img src="assets/charities/ai.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav>
+            <ul id="position">
+              <li class="on"></li>
+              <li class=""></li>
+              <li class=""></li>
+              <li class=""></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+  <script type="text/javascript" src="assets/swipe.js"></script>
+  <script type="text/javascript">
+    var charityTags = ['bkone-20', 'bkone-21','bkone-22','bkone-23'];
+    var BlueDots = {
+      $el: null,
+      init: function() {
+        this.$el = $('#position');
+        this.$el.find('li').on('click', function(event) {
+          mySwipe.slide($(event.target).index());
+        });
+      },
+      setActive: function(index) {
+        this.$el.find('.on').removeClass('on');
+        $(this.$el.children()[index]).addClass('on');
+      }
+    };
+    $(function() {
+      BlueDots.init();
+      window.mySwipe = new Swipe(document.getElementById('slider'), {
+        speed: 400,
+        auto: 3000,
+        continuous: true,
+        disableScroll: true,
+        callback: function(index, elem) {
+          BlueDots.setActive(index);
+          $('input[name="tag"]').val(charityTags[index]);
+        }
+      });
+    });
+  </script>
 </html>
