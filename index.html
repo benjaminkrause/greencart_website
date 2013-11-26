@@ -7,78 +7,65 @@
     <link rel="stylesheet" type="text/css" href="default.css">
   </head>
   <body>
-    <div id="container">
-      <div id="header">
-        <div id="logo">&nbsp;</div>
-        <h1>
-          Green Cart - charity shopping
-        </h1>
-      </div>
-      <div id="content">
-        <div id="search_area">
-          <form method="GET" action="http://www.amazon.de/s/">
-            <input type="text" name="field-keywords">
-            <input type="hidden" name="tag" value="bkone-20"/>
-          </form>
-        </div>
-
-        <div class="slider-container">
-          <div id='slider' class='swipe'>
-            <div class='swipe-wrap'>
-                <div class="image">
-                  <img src="assets/charities/ov.jpg" />
-                </div>
-                <div class="image">
-                  <img src="assets/charities/unicef.jpg" />
-                </div>
-                <div class="image">
-                  <img src="assets/charities/aog.jpg" />
-                </div>
-                <div class="image">
-                  <img src="assets/charities/ai.jpg" />
-                </div>
-            </div>
-          </div>
-          <ul id="position">
-            <li class="on"></li>
-            <li class=""></li>
-            <li class=""></li>
-            <li class=""></li>
-          </ul>
-        </div>
-      </div>
+    <img id="bg-image-container" class="ai"/>
+    <div class="header">
+      <h1>
+        Green Cart
+      </h1>
+    </div>
+    <div class="content">
+      <h2>Kaufe bei</h2>
+      <form method="GET" action="http://www.amazon.de/s/">
+        <input class="keyword-input" type="text" name="field-keywords" placeholder="Amazon Produktsuche" />
+        <button>
+          <img src="/assets/Amazon.png">
+        </button>
+        <input type="hidden" name="tag" value="bkone-20"/>
+      </form>
+      <h2>und unterstutze damit</h2>
     </div>
   </body>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
   <script type="text/javascript" src="assets/swipe.js"></script>
   <script type="text/javascript">
     var charityTags = ['bkone-20', 'bkone-21','bkone-22','bkone-23'];
-    var BlueDots = {
-      $el: null,
-      init: function() {
-        this.$el = $('#position');
-        this.$el.find('li').on('click', function(event) {
-          mySwipe.slide($(event.target).index());
-        });
-      },
-      setActive: function(index) {
-        this.$el.find('.on').removeClass('on');
-        $(this.$el.children()[index]).addClass('on');
-      }
-    };
-    $(function() {
-      BlueDots.init();
-      window.mySwipe = new Swipe(document.getElementById('slider'), {
-        speed: 400,
-        auto: 3000,
-        continuous: true,
-        disableScroll: true,
-        callback: function(index, elem) {
-          BlueDots.setActive(index);
-          $('input[name="tag"]').val(charityTags[index]);
-        }
+
+    function preload(arrayOfImages) {
+      $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
       });
+    }
+
+    $(function(){
+      preload([
+        '/assets/charities/ai.jpg',
+        '/assets/charities/aog.jpg',
+        '/assets/charities/ov.jpg',
+        '/assets/charities/unicef.jpg'
+      ]);
+
+      var ogs = ['ai', 'aog', 'ov', 'unicef'];
+      var index = 0;
+      var $bg = $('#bg-image-container');
+
+      next = function(goTo) {
+        if(goTo == index) {
+          return;
+        }
+        else if(goTo >= 0) {
+          var nextIndex = goTo;
+        }
+        else {
+          var nextIndex = (index == ogs.length - 1 ? 0 : index + 1);
+        }
+        var nextClass = ogs[nextIndex];
+        var prevClass = $bg[0].className;
+        $bg.removeClass();
+        $bg.addClass(nextClass);
+        index = nextIndex;
+      };
     });
+
   </script>
 </html>
 

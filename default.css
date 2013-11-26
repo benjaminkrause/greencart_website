@@ -2,113 +2,139 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 /* --- */
 
-
 body {
 	font-family: 'Dosis', helvetica, sans-serif;
-}
-
-div#header {
-  padding-left: 1em;
-  padding-top: 0.5em;
-	height: 76px;
-  width: 100%;
-	background: #222;
-	border-bottom: 1px solid rgba(255,255,255,.1);
-	box-shadow: 0 -2px 0 rgba(0,0,0,.4);
-	background: #222222 url(assets/forest.png) no-repeat;
-	background-size: cover;
-}
-
-div#header #logo {
-  width: 70px;
-  height: 70px;
-	background: url('assets/logo_new.png') no-repeat;
-  background-size: cover;
-  float: left;
-  margin-right: 2em;
-}
-
-div#header h1 {
-  padding: 10px;
-  font-size: 35px;
+  background-color: #000;
   color: #fff;
-  position: relative;
-  margin: 7px 40px 0 90px;
-  /* As suggested on http://stackoverflow.com/a/3977240/422977 */
-  background: rgba(0, 0, 0, 0.5); /* browsers */
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* IE */
 }
 
-div#content {
-}
-
-div#search_area {
-  text-align: center;
-  padding-top: 2em;
-  background: #2C2C2C;
-}
-
-div#search_area input {
-  font-size: 24px;
-  height: 1.25em;
-  padding: 2px 5px;
-  margin-bottom: 2em;
-  width: 50%;
-  border: 1px solid rgb(185,185,185);
-  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.1);
-
-}
-
-.slider-container {
-  background-color: #191919;
-  text-align: center;
-  padding: 40px;
-}
-
-.image img {
-  margin: 0 auto;
-  height: 333px;
-  width: 500px;
-  box-shadow: 0 1px 5px rgba(0,0,0,.85),inset 0 0 1px rgba(255,255,255,.35);
-  border-radius: 5px;
-}
-
-.swipe {
+h1 {
+  position: fixed;
+  display: block;
+  width: 70px;
+  height: 93px;
+  text-indent: -99999px;
   overflow: hidden;
-  visibility: hidden;
-  position: relative;
-}
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
-}
-.swipe-wrap > div {
-  float:left;
-  width:100%;
-  position: relative;
-}
-
-ul#position {
-  list-style: none;
-  margin-top: 20px;
-}
-ul#position li {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: inset 0 1px 3px black,0 0 1px 1px #202020;
-  margin: 0 2px;
+  background: url('assets/logo.png') no-repeat;
+  background-size: cover;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
   cursor: pointer;
 }
-ul#position li.on {
-  box-shadow: inset 0 1px 3px -1px #28b4ea,0 1px 2px rgba(0,0,0,.5);
-  background-color: #1293dc;
-  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#1293dc),color-stop(100%,#0f6297));
-  background-image: -webkit-linear-gradient(top,#1293dc,#0f6297);
-  background-image: -moz-linear-gradient(top,#1293dc,#0f6297);
-  background-image: -ms-linear-gradient(top,#1293dc,#0f6297);
-  background-image: -o-linear-gradient(top,#1293dc,#0f6297);
-  background-image: linear-gradient(top,#1293dc,#0f6297);
+
+h2 {
+  font-size: 60px;
+  font-weight: 400;
+  padding: 40px;
+  text-shadow: 1px 1px 1px #000;
+}
+
+#bg-image-container {
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+  -o-background-size: 100% auto;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  filter: blur(1px);
+  opacity: 0.4;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: background-image 1s ease-in-out;
+  -moz-transition: background-image 1s ease-in-out;
+  -ms-transition: background-image 1s ease-in-out;
+  -o-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  background-image: none;
+}
+
+#bg-image-container.ai {
+  background-image: url('/assets/charities/ai.jpg');
+}
+
+#bg-image-container.aog {
+  background-image: url('/assets/charities/aog.jpg');
+}
+
+#bg-image-container.ov {
+  background-image: url('/assets/charities/ov.jpg');
+}
+
+#bg-image-container.unicef {
+  background-image: url('/assets/charities/unicef.jpg');
+}
+
+.content {
+  position: absolute;
+  height: 600px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.keyword-input {
+  width: 80%;
+  max-width: 560px;
+  outline: none;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 0 15px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.2);
+  display: inline-block;
+  margin-right: -51px;
+  vertical-align: middle;
+}
+
+button {
+	outline: none;
+	border: none;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+	border-radius: 2px;
+	background-image: -o-linear-gradient(-90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: -moz-linear-gradient(-90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: -webkit-linear-gradient(-90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: -ms-linear-gradient(-90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: linear-gradient(-180deg, #79B421 0%, #5A9C1A 100%);
+	-moz-box-shadow:    0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px -1px 1px 0px rgba(0,0,0,0.50), inset 0px 2px 1px 0px rgba(255,254,254,0.32);
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px -1px 1px 0px rgba(0,0,0,0.50), inset 0px 2px 1px 0px rgba(255,254,254,0.32);
+	box-shadow:         0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px -1px 1px 0px rgba(0,0,0,0.50), inset 0px 2px 1px 0px rgba(255,254,254,0.32);
+	text-decoration: none;
+	text-align: center;
+  display: inline-block;
+	color: white;
+  vertical-align: middle;
+}
+
+
+button img {
+	width: 33px;
+  padding: 0 5px;
+}
+
+button:hover {
+	border-radius: 3px;
+	background-image: -o-linear-gradient(90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: -moz-linear-gradient(90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: -webkit-linear-gradient(90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: -ms-linear-gradient(90deg, #79B421 0%, #5A9C1A 100%);
+	background-image: linear-gradient(0deg, #79B421 0%, #5A9C1A 100%);
+	-moz-box-shadow:    0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px -2px 1px 0px rgba(0,0,0,0.50), inset 0px 2px 1px 0px rgba(255,254,254,0.32);
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px -2px 1px 0px rgba(0,0,0,0.50), inset 0px 2px 1px 0px rgba(255,254,254,0.32);
+	box-shadow:         0px 0px 2px 0px rgba(0,0,0,0.50), inset 0px -2px 1px 0px rgba(0,0,0,0.50), inset 0px 2px 1px 0px rgba(255,254,254,0.32);
 }
