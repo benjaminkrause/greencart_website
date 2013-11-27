@@ -23,6 +23,18 @@
         <input type="hidden" name="tag" value="bkone-20"/>
       </form>
       <h2>und unterstutze damit</h2>
+      <div id='slider' class='swipe'>
+        <div class='swipe-wrap'>
+          <div><img src="assets/logos/ai.png" /></div>
+          <div><img src="assets/logos/aog.png" /></div>
+          <div><img src="assets/logos/ov.png" /></div>
+          <div><img src="assets/logos/unicef.png" /></div>
+        </div>
+      </div>
+      <div class="nav">
+        <a rel="prev" class="arrows prev">&lt;</a>
+        <a rel="next" class="arrows next">&gt;</a>
+      </div>
     </div>
   </body>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
@@ -64,6 +76,19 @@
         $bg.addClass(nextClass);
         index = nextIndex;
       };
+
+      $('.next').click(function() { mySwipe.next(); });
+      $('.prev').click(function() { mySwipe.prev(); });
+
+      window.mySwipe = new Swipe(document.getElementById('slider'), {
+        speed: 400,
+        disableScroll: true,
+        callback: function(index, elem) {
+          next(index);
+          $('input[name="tag"]').val(charityTags[index]);
+        }
+      });
+
     });
 
   </script>
