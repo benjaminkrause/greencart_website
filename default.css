@@ -183,6 +183,18 @@ img {
   right: 0;
 }
 
+.footer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.footer a {
+  color: #fff;
+  color: rgba(255, 255, 255, 0.3);
+  margin-left: 10px;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-device-width : 320px)
@@ -220,3 +232,4 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) {
 /* Styles */
 }
+
