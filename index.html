@@ -26,10 +26,10 @@
       <h2>und unterstutze damit</h2>
       <div id='slider' class='swipe'>
         <div class='swipe-wrap'>
-          <div><img src="assets/logos/ai.png" /></div>
-          <div><img src="assets/logos/aog.png" /></div>
-          <div><img src="assets/logos/ov.png" /></div>
           <div><img src="assets/logos/sos.png" /></div>
+          <div><img src="assets/logos/ov.png" /></div>
+          <div><img src="assets/logos/aog.png" /></div>
+          <div><img src="assets/logos/ai.png" /></div>
         </div>
       </div>
       <div class="nav">
@@ -45,7 +45,7 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
   <script type="text/javascript" src="assets/swipe.js"></script>
   <script type="text/javascript">
-    var charityTags = ['bkone-20', 'bkone-21','bkone-22','bkone-23'];
+    var charityTags = ['gc-sos-21', 'gc-oroverde-21','gc-aerzte-21','gc-amnesty-21'];
 
     function preload(arrayOfImages) {
       $(arrayOfImages).each(function(){
@@ -55,13 +55,13 @@
 
     $(function(){
       preload([
-        '/assets/charities/ai.jpg',
-        '/assets/charities/aog.jpg',
+        '/assets/charities/sos.jpg',
         '/assets/charities/ov.jpg',
-        '/assets/charities/sos.jpg'
+        '/assets/charities/aog.jpg',
+        '/assets/charities/ai.jpg'
       ]);
 
-      var ogs = ['ai', 'aog', 'ov', 'sos'];
+      var ogs = ['sos', 'ov', 'aog', 'ai'];
       var index = 0;
       var $bg = $('#bg-image-container');
 
