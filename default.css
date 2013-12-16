@@ -57,20 +57,20 @@ h2 {
   background-image: none;
 }
 
-#bg-image-container.ai {
-  background-image: url('/assets/charities/ai.jpg');
-}
-
-#bg-image-container.aog {
-  background-image: url('/assets/charities/aog.jpg');
+#bg-image-container.sos {
+  background-image: url('/assets/charities/unicef.jpg');
 }
 
 #bg-image-container.ov {
   background-image: url('/assets/charities/ov.jpg');
 }
 
-#bg-image-container.unicef {
-  background-image: url('/assets/charities/unicef.jpg');
+#bg-image-container.aog {
+  background-image: url('/assets/charities/aog.jpg');
+}
+
+#bg-image-container.ai {
+  background-image: url('/assets/charities/ai.jpg');
 }
 
 .content {
