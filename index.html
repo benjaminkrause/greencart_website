@@ -63,6 +63,16 @@
       ]);
 
       var ogs = ['sos', 'ov', 'aog', 'ai'];
+
+      $('body').on('keydown', function(event) {
+        if(event.keyCode == 37) {
+          mySwipe.prev();
+        }
+        else if(event.keyCode == 39) {
+          mySwipe.next();
+        }
+      });
+
       var index = 0;
       var $bg = $('#bg-image-container');
 
