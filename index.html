@@ -45,7 +45,7 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
   <script type="text/javascript" src="assets/swipe.js"></script>
   <script type="text/javascript">
-    var charityTags = ['gc-sos-21','gc-amnesty-21', 'gc-aerzte-21', 'gc-oroverde-21',];
+    var charityTags = ['gc-sos-21', 'gc-aerzte-21','gc-oroverde-21','gc-amnesty-21'];
 
     function preload(arrayOfImages) {
       $(arrayOfImages).each(function(){
@@ -55,10 +55,10 @@
 
     $(function(){
       preload([
-        '/assets/charities/sos.jpg'
         '/assets/charities/ai.jpg',
         '/assets/charities/aog.jpg',
         '/assets/charities/ov.jpg',
+        '/assets/charities/sos.jpg'
       ]);
 
       var ogs = ['sos', 'ai', 'aog', 'ov'];
