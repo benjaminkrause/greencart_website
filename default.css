@@ -43,7 +43,15 @@ h3 {
   text-shadow: 1px 1px 1px #000;
 }
 
-#bg-image-container {
+.header, .content, .footer {
+  z-index: 5;
+}
+
+.image-container {
+  opacity: 0.4;
+}
+
+.bg-image {
   background-repeat: no-repeat;
   -moz-background-size: cover;
   -o-background-size: 100% auto;
@@ -58,31 +66,26 @@ h3 {
   -moz-filter: blur(1px);
   -o-filter: blur(1px);
   filter: blur(1px);
-  opacity: 0.4;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-transition: background-image 1s ease-in-out;
-  -moz-transition: background-image 1s ease-in-out;
-  -ms-transition: background-image 1s ease-in-out;
-  -o-transition: background-image 1s ease-in-out;
-  transition: background-image 1s ease-in-out;
-  background-image: none;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
-#bg-image-container.sos {
+.bg-image.sos {
   background-image: url('/assets/charities/sos.jpg');
 }
 
-#bg-image-container.ov {
+.bg-image.ov {
   background-image: url('/assets/charities/ov.jpg');
 }
 
-#bg-image-container.aog {
+.bg-image.aog {
   background-image: url('/assets/charities/aog.jpg');
 }
 
-#bg-image-container.ai {
+.bg-image.ai {
   background-image: url('/assets/charities/ai.jpg');
 }
 

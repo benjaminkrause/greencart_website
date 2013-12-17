@@ -9,7 +9,9 @@
     <meta name="apple-itunes-app" content="app-id=751332885">
   </head>
   <body>
-    <img id="bg-image-container" class="sos"/>
+    <div class="image-container">
+      <img class="bg-image sos"/>
+    </div>
     <div class="header">
       <h1>
         Green Cart
@@ -73,10 +75,34 @@
         }
       });
 
+      debounce = function(func, wait) {
+        var timeout, args, context, timestamp, result;
+        return function() {
+          context = this;
+          args = arguments;
+          timestamp = new Date();
+          var later = function() {
+            var last = (new Date()) - timestamp;
+            if (last < wait) {
+              timeout = setTimeout(later, wait - last);
+            } else {
+              timeout = null;
+              result = func.apply(context, args);
+            }
+          };
+          var callNow = !timeout;
+          if (!timeout) {
+            timeout = setTimeout(later, wait);
+          }
+          if (callNow) result = func.apply(context, args);
+          return result;
+        };
+      };
+
       var index = 0;
-      var $bg = $('#bg-image-container');
 
       next = function(goTo) {
+        var $current = $('.bg-image').first();
         if(goTo == index) {
           return;
         }
@@ -87,11 +113,16 @@
           var nextIndex = (index == ogs.length - 1 ? 0 : index + 1);
         }
         var nextClass = ogs[nextIndex];
-        var prevClass = $bg[0].className;
-        $bg.removeClass();
-        $bg.addClass(nextClass);
+        var $nextImage = $('<img class="bg-image">').addClass(nextClass);
+        $nextImage.insertBefore($current);
+        $current.css({opacity: 0});
+        setTimeout(function(){
+          $current.remove();
+        }, 1000);
         index = nextIndex;
       };
+
+      next = debounce(next, 1000);
 
       $('.next').click(function() { mySwipe.next(); });
       $('.prev').click(function() { mySwipe.prev(); });
