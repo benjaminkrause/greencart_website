@@ -56,16 +56,40 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
   <script type="text/javascript" src="assets/swipe.js"></script>
   <script type="text/javascript">
-    var charityTags = ['gc-sos-21', 'gc-oroverde-21','gc-aerzte-21','gc-amnesty-21'];
 
-    function preload(arrayOfImages) {
-      $(arrayOfImages).each(function(){
+    function preloadImages(images) {
+      $(images).each(function(){
         $('<img/>')[0].src = this;
       });
     }
 
+    function debounce(func, wait) {
+      var timeout, args, context, timestamp, result;
+      return function() {
+        context = this;
+        args = arguments;
+        timestamp = new Date();
+        var later = function() {
+          var last = (new Date()) - timestamp;
+          if (last < wait) {
+            timeout = setTimeout(later, wait - last);
+          } else {
+            timeout = null;
+            result = func.apply(context, args);
+          }
+        };
+        var callNow = !timeout;
+        if (!timeout) {
+          timeout = setTimeout(later, wait);
+        }
+        if (callNow) result = func.apply(context, args);
+        return result;
+      };
+    };
+
     $(function(){
-      preload([
+
+      preloadImages([
         '/assets/charities/sos.jpg',
         '/assets/charities/ov.jpg',
         '/assets/charities/aog.jpg',
@@ -73,40 +97,7 @@
       ]);
 
       var ogs = ['sos', 'ov', 'aog', 'ai'];
-
-      $('body').on('keydown', function(event) {
-        if(event.keyCode == 37) {
-          mySwipe.prev();
-        }
-        else if(event.keyCode == 39) {
-          mySwipe.next();
-        }
-      });
-
-      debounce = function(func, wait) {
-        var timeout, args, context, timestamp, result;
-        return function() {
-          context = this;
-          args = arguments;
-          timestamp = new Date();
-          var later = function() {
-            var last = (new Date()) - timestamp;
-            if (last < wait) {
-              timeout = setTimeout(later, wait - last);
-            } else {
-              timeout = null;
-              result = func.apply(context, args);
-            }
-          };
-          var callNow = !timeout;
-          if (!timeout) {
-            timeout = setTimeout(later, wait);
-          }
-          if (callNow) result = func.apply(context, args);
-          return result;
-        };
-      };
-
+      var charityTags = ['gc-sos-21', 'gc-oroverde-21','gc-aerzte-21','gc-amnesty-21'];
       var index = 0;
 
       next = function(goTo) {
@@ -134,6 +125,15 @@
 
       $('.next').click(function() { mySwipe.next(); });
       $('.prev').click(function() { mySwipe.prev(); });
+
+      $('body').on('keydown', function(event) {
+        if(event.keyCode == 37) {
+          mySwipe.prev();
+        }
+        else if(event.keyCode == 39) {
+          mySwipe.next();
+        }
+      });
 
       window.mySwipe = new Swipe(document.getElementById('slider'), {
         disableScroll: true,
