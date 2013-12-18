@@ -49,7 +49,7 @@ h4 {
   text-shadow: 1px 1px 1px #000;
 }
 
-h4 a {
+h4 a, .green {
   color: green;
 }
 
