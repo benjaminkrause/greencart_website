@@ -207,6 +207,12 @@ img {
   margin-left: 140px;
 }
 
+.appstore {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
 .footer {
   position: absolute;
   bottom: 20px;
