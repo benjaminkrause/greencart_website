@@ -82,20 +82,8 @@ h4 a, .green {
   transition: opacity 1s ease-in-out;
 }
 
-.bg-image.sos {
-  background-image: url('/assets/charities/sos.jpg');
-}
-
-.bg-image.ov {
-  background-image: url('/assets/charities/ov.jpg');
-}
-
-.bg-image.aog {
-  background-image: url('/assets/charities/aog.jpg');
-}
-
-.bg-image.ai {
-  background-image: url('/assets/charities/ai.jpg');
+.bg-image.gfg {
+  background-image: url('/assets/charities/gfg.jpg');
 }
 
 .content {

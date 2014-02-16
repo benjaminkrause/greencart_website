@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="image-container">
-      <img class="bg-image sos" alt=""/>
+      <img class="bg-image gfg" alt=""/>
     </div>
     <div class="header">
       <h1>
@@ -28,10 +28,7 @@
       <h3>Wähle eine Organisation,<br/>die <span class="green">Greencart</span> finanziell unterstützen soll</h3>
       <div id='slider' class='swipe'>
         <div class='swipe-wrap'>
-          <div><img src="assets/logos/sos.png" alt="SOS Kinderdörfer"/></div>
-          <div><img src="assets/logos/ov.png" alt="Oro Verde"/></div>
-          <div><img src="assets/logos/aog.png" alt="Ärzte ohne Grenzen"/></div>
-          <div><img src="assets/logos/ai.png" alt="Amnesty International"/></div>
+          <div><img src="assets/logos/gfg.png" alt="GfG"/></div>
         </div>
       </div>
       <div class="nav">
@@ -44,7 +41,7 @@
         <button>
           <img src="/assets/Amazon.png" alt="Amazon">
         </button>
-        <input type="hidden" name="tag" value="gc-sos-21"/>
+        <input type="hidden" name="tag" value="gc-gfg-21"/>
       </form>
       <h4>Wir sammeln mit Deinem Einkauf Werbekosten und spenden 80% an die von Dir gewählte Charity.<br /> Dich kostet das keinen Cent mehr.<br />Wie es genau funktioniert, <a href="http://blog.greencart.co/post/67258633679/ueber-green-cart-charity-shopping">erfährst Du hier.</a></h4>
     </div>
@@ -93,14 +90,11 @@
     $(function(){
 
       preloadImages([
-        '/assets/charities/sos.jpg',
-        '/assets/charities/ov.jpg',
-        '/assets/charities/aog.jpg',
-        '/assets/charities/ai.jpg'
+        '/assets/charities/gfg.jpg',
       ]);
 
-      var ogs = ['sos', 'ov', 'aog', 'ai'];
-      var charityTags = ['gc-sos-web-21', 'gc-oroverde-web-21','gc-aerzte-web-21','gc-amnesty-web-21'];
+      var ogs = ['gfg'];
+      var charityTags = ['gc-gfg-web-21'];
       var index = 0;
 
       next = function(goTo) {
