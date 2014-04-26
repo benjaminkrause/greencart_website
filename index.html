@@ -42,7 +42,7 @@
       <form method="GET" action="http://www.amazon.de/s/">
         <input class="keyword-input" type="text" name="field-keywords" placeholder="Amazon Produktsuche" />
         <button>
-          <img src="/assets/Amazon.png" alt="Amazon">
+          <img src="assets/Amazon.png" alt="Amazon">
         </button>
         <input type="hidden" name="tag" value="gc-sos-21"/>
       </form>
@@ -93,15 +93,16 @@
     $(function(){
 
       preloadImages([
-        '/assets/charities/sos.jpg',
-        '/assets/charities/ov.jpg',
-        '/assets/charities/aog.jpg',
-        '/assets/charities/ai.jpg'
+        'assets/charities/sos.jpg',
+        'assets/charities/ov.jpg',
+        'assets/charities/aog.jpg',
+        'assets/charities/ai.jpg'
       ]);
 
       var ogs = ['sos', 'ov', 'aog', 'ai'];
       var charityTags = ['gc-sos-web-21', 'gc-oroverde-web-21','gc-aerzte-web-21','gc-amnesty-web-21'];
       var index = 0;
+      var startslide = 0;
 
       next = function(goTo) {
         var $current = $('.bg-image').first();
@@ -138,14 +139,21 @@
         }
       });
 
+      if (window.location.hash) {
+        // use 0 or index of hash fragment as starting slide.
+        // if invalid hash fragment, -1 will be returned,
+        // hence sort().pop() will return the highest index
+        startslide = [0, ogs.indexOf(window.location.hash.replace('#',''))].sort().pop();
+      }
+
       window.mySwipe = new Swipe(document.getElementById('slider'), {
         disableScroll: true,
+        startSlide: startslide,
         callback: function(index, elem) {
           next(index);
           $('input[name="tag"]').val(charityTags[index]);
         }
       });
-
     });
 
   </script>
