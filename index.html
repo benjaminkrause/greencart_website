@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="image-container">
-      <img class="bg-image sos" alt=""/>
+      <img class="bg-image ov" alt=""/>
     </div>
     <div class="header">
       <h1>
@@ -139,21 +139,22 @@
         }
       });
 
-      if (window.location.hash) {
-        // use 0 or index of hash fragment as starting slide.
-        // if invalid hash fragment, -1 will be returned,
-        // hence sort().pop() will return the highest index
-        startslide = [0, ogs.indexOf(window.location.hash.replace('#',''))].sort().pop();
-      }
 
       window.mySwipe = new Swipe(document.getElementById('slider'), {
         disableScroll: true,
-        startSlide: startslide,
         callback: function(index, elem) {
           next(index);
           $('input[name="tag"]').val(charityTags[index]);
         }
       });
+
+      if (window.location.hash) {
+        // use 0 or index of hash fragment as starting slide.
+        // if invalid hash fragment, -1 will be returned,
+        // hence sort().pop() will return the highest index
+        selected_og = [0, ogs.indexOf(window.location.hash.replace('#',''))].sort().pop();
+        mySwipe.slide(selected_og);
+      }
     });
 
   </script>
