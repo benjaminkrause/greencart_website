@@ -121,8 +121,9 @@
         $current.css({opacity: 0});
         setTimeout(function(){
           $current.remove();
-        }, 1000);
+        }, 1000)
         index = nextIndex;
+        window.location.hash = ogs[index];
       };
 
       next = debounce(next, 1000);
