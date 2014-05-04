@@ -86,16 +86,20 @@ h4 a, .green {
   background-image: url('/assets/charities/sos.jpg');
 }
 
-.bg-image.ov {
-  background-image: url('/assets/charities/ov.jpg');
+.bg-image.oroverde {
+  background-image: url('/assets/charities/oroverde.jpg');
 }
 
-.bg-image.aog {
-  background-image: url('/assets/charities/aog.jpg');
+.bg-image.aerzte {
+  background-image: url('/assets/charities/aerzte.jpg');
 }
 
-.bg-image.ai {
-  background-image: url('/assets/charities/ai.jpg');
+.bg-image.amnesty {
+  background-image: url('/assets/charities/amnesty.jpg');
+}
+
+.bg-image.mensch {
+  background-image: url('/assets/charities/mensch.jpg');
 }
 
 .content {
